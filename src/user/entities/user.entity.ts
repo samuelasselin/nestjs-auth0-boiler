@@ -1,6 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { MenuPreference } from '../../menu-preferences/entities/menu-preference.entity';
-import { Recipe } from '../../recipe/entities/recipe.entity';
 
 @Entity()
 export class User {
@@ -12,10 +10,4 @@ export class User {
 
   @Column({ unique: true })
   email: string;
-
-  @OneToMany(() => MenuPreference, (menuPreference) => menuPreference.user)
-  menuPreferences: MenuPreference[];
-
-  @OneToMany(() => Recipe, (recipe) => recipe.user)
-  recipes: Recipe[];
 }
